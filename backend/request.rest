@@ -1,0 +1,54 @@
+POST http://localhost:3000/api/auth/signup
+Content-Type: application/json
+
+{
+    "username": "test3",
+    "email": "test3@test.com",
+    "password": "test123"
+}
+
+###
+
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "test2@test.com",
+    "password": "test123"
+}
+
+###
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "admin@test.com",
+    "password": "test123"
+}
+
+###
+
+
+GET   http://localhost:3000/api/auth/users
+Content-Type: application/json
+
+
+###
+GET   http://localhost:3000/api/auth/users/2
+Content-Type: application/json
+###
+
+DELETE    http://localhost:3000/api/auth/users/8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlhdCI6MTYwMjA2OTk5NywiZXhwIjoxNjAyMTU2Mzk3fQ.1CKT_Nlirn8YRdYBuNeVcbDIzMPKaK9xawPxzNSMSr4
+Content-Type: application/json
+
+###
+PUT   http://localhost:3000/api/auth/users/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTYwMjE1NDQzMCwiZXhwIjoxNjAyMjQwODMwfQ.Hnosmfy5Dg76gvdXiTnLrXyQqs_3Z0bXpI8HAFIeTt8
+Content-Type: application/json
+
+{
+        "username": "updateNoPic",
+        "email": "updatemail",
+        "password": "test"
+}
