@@ -19,9 +19,12 @@
 				<el-dropdown trigger="click">
 					<span class="el-dropdown-link"><i class="el-icon-setting"></i></span>
 					<el-dropdown-menu slot="dropdown">
-						<el-dropdown-item
-							><span @click="logout">Déconnexion</span></el-dropdown-item
-						>
+						<el-dropdown-item class="dropdown-item">
+							<router-link :to="{ name: 'profil', params: { id: this.$store.state.user.userId}}">Mon compte</router-link>
+						</el-dropdown-item>
+						<el-dropdown-item class="dropdown-item">
+							<span @click="logout">Déconnexion</span>
+						</el-dropdown-item>
 					</el-dropdown-menu>
 				</el-dropdown>
 			</el-menu-item>
@@ -93,6 +96,10 @@ a {
 		margin-right: 0;
 		font-size: 1.3rem;
 	}
+}
+.dropdown-item{
+	font-size: 0.8rem;
+	font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 
 @media only screen and (max-width: 520px){

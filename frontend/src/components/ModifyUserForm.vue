@@ -111,8 +111,15 @@ export default {
 		};
 	},
 	mounted() {
-		this.user =	this.$store.state.user
-		this.imageUrl = this.$store.state.user.profilePic
+		this.$store.dispatch("ConnectedUser")
+        .then(response => {
+            this.user = response.data
+            this.imageUrl = response.data.profilePic
+            this.loading = true
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
 	},
 	methods: {
 		changePic(event) {
@@ -122,7 +129,7 @@ export default {
 				.dispatch("modifyPic", event.raw)
 				.then(() => {
 					this.successMessage = "Photo modifié !";
-					location.reload();
+					this.$root.$emit('newPicture', { picture : URL.createObjectURL(event.raw)} )
 				})
 				.catch(() => {
 					this.errorMessage = "Une erreur s'est produite";
@@ -137,7 +144,7 @@ export default {
 					username: this.username,
 				})
 				.then((response) => {
-                    location.reload();
+					this.$root.$emit('newUsername', { username : this.username} )
                     this.errorMessage = "";
                     this.successMessage = response.data.message;
 				})

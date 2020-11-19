@@ -145,7 +145,6 @@ export default new Vuex.Store({
 					.get(`/auth/users/${userId}`, { headers: { Authorization: authToken } })
 					.then((response) => {
 						this.state.user =  response.data
-						console.log('call') 
 						resolve(response);
 					})
 					.catch((error) => {
@@ -160,7 +159,6 @@ export default new Vuex.Store({
 				const authToken = "Bearer " + this.state.token;
 				const formData = new FormData();
 				formData.append("image", credentials, credentials.name);
-				console.log(credentials);
 				axios
 					.put(`/auth/users/pic/${userId}`, formData, {
 						headers: { Authorization: authToken },

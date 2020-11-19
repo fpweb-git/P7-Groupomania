@@ -1,9 +1,9 @@
 <template>
 	<div class="navbar-user" v-if="loading">
-        <router-link :to="{ name: 'profil', params: { id : user.userId}}" class="user-info">
-            <el-avatar v-if="user.profilePic" :src="user.profilePic"></el-avatar>
+        <router-link :to="{ name: 'user', params: { id : user.userId}}" class="user-info">
+            <el-avatar v-if="userPicture" :src="userPicture"></el-avatar>
             <el-avatar v-else><i class="el-icon-user"></i></el-avatar>
-            <span class="username">{{ user.username }}</span>
+            <span class="username">{{ username }}</span>
         </router-link>
 	</div>
 </template>
@@ -16,17 +16,27 @@ export default {
         return {
 			user: {},
             loading: false,
+            userPicture : '',
+            username : '',
 		};
     },
     mounted(){
         this.$store.dispatch("ConnectedUser")
         .then(response => {
             this.user = response.data
+            this.userPicture = response.data.profilePic
+            this.username = response.data.username
             this.loading = true
         })
         .catch((error)=>{
             console.log(error)
         })
+        this.$root.$on('newPicture', (payload)=>{
+            this.userPicture = payload.picture
+        })
+        this.$root.$on('newUsername', (payload)=>{
+            this.username = payload.username
+		})
     }
 };
 </script>
