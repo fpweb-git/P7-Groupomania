@@ -43,7 +43,7 @@ const routes = [
     name: 'profil',
     component: () => import('../views/UserProfil.vue'),
     meta: {
-      requiresAuth: true,
+      requiresPrivate: true,
     }
   },
   {
@@ -79,7 +79,17 @@ router.beforeEach((to, from, next) => {
 		} else {
 			next();
 		}
-	} else {
+  }
+  else if (to.matched.some((record) => record.meta.requiresPrivate)) {
+		if (store.getters.isOwner !== to.params.id && store.getters.loggedIn) {
+			next({
+				path: `/user/${to.params.id}`,
+			});
+		} else {
+			next();
+		}
+  }
+  else {
 		next(); 
 	}
 });
