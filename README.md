@@ -36,9 +36,9 @@ vuex
 
 ## *Run the project* 
 
-Requires MySQl Workbench (or any mysql manager) and nodeJS installed on your computer.
-
 #### *Backend :*
+
+Requires MySQl Workbench (or any mysql manager) and nodeJS installed on your computer.
 
 Edit config.json file inside backend/config
 Change the development fields as your database setup(username, password,etc..)
@@ -47,6 +47,7 @@ Then on your terminal :
 
 ```
 cd backend
+npm i
 nodemon run server
 ```
 
@@ -60,6 +61,7 @@ Then on your terminal :
 
 ```
 cd frontend
+npm i
 npm run serve
 ```
 

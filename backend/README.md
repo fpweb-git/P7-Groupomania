@@ -1,1 +1,3 @@
-P7-backend
+Run the server :
+
+-nodemon run server
