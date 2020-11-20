@@ -1,6 +1,6 @@
 <template>
 	<div class="post" v-if="loading">
-		<div class="card" v-for="(post, index) in posts" :key="post.postId">
+		<article class="card" v-for="(post, index) in posts" :key="post.postId">
 			<div class="card__header">
 				<div class="card__header--avatar">
 					<router-link :to="{ name: 'user', params: { id : post.userId}}" class="user-info">
@@ -41,7 +41,7 @@
 					<div v-else class="card__social--like--icon"><i @click="sendLike(post)" class="far fa-heart"></i></div>
 				</div>
 			</div>
-		</div>
+		</article>
 	</div>
 </template>
 

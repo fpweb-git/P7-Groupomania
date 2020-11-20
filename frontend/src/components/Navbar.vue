@@ -1,5 +1,5 @@
 <template>
-	<div class="navbar">
+	<nav class="navbar">
 		<el-menu mode="horizontal">
 			<el-menu-item v-if="!loggedIn" class="nav-logo no-link">
 				<div><i class="fas fa-globe"></i><span> Groupomania</span></div>
@@ -32,7 +32,7 @@
 				<NavbarUser/>
 			</el-menu-item>
 		</el-menu>
-	</div>
+	</nav>
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 <template>
 	<div class="post" v-if="loading">
-		<div class="card">
+		<article class="card">
 			<div class="card__header">
 				<div class="card__header--avatar">
 					<el-avatar v-if="post.user.profilePic" :src="post.user.profilePic"></el-avatar>
@@ -37,7 +37,7 @@
 				</div>
 			</div>
 			<Comments/>
-		</div>
+		</article>
 	</div>
 </template>
 
