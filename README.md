@@ -1,5 +1,7 @@
 # P7-Groupomania 
 
+![](home-page.png)
+
 ## *Environment* 
 
 #### *Backend :* 
