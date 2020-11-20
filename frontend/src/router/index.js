@@ -43,7 +43,7 @@ const routes = [
     name: 'profil',
     component: () => import('../views/UserProfil.vue'),
     meta: {
-      requiresPrivate: true,
+      requiresPrivate: true
     }
   },
   {
@@ -81,11 +81,18 @@ router.beforeEach((to, from, next) => {
 		}
   }
   else if (to.matched.some((record) => record.meta.requiresPrivate)) {
-		if (store.getters.isOwner !== to.params.id && store.getters.loggedIn) {
+    console.log(to)
+    console.log(from)
+		if (!store.getters.loggedIn) {
 			next({
-				path: `/user/${to.params.id}`,
+				path: "/login",
 			});
-		} else {
+    } else if (store.getters.isOwner !== to.params.id) {
+			next({
+				path: `${from.fullPath}`,
+			});
+    }
+    else {
 			next();
 		}
   }
