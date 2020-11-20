@@ -84,6 +84,7 @@ export default {
 					userId: this.$store.state.user.userId,
 				})
 			})
+			this.$store.dispatch("ConnectedUser")
 	},
 	methods : {
 		isLiked(post){

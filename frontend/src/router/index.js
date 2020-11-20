@@ -81,8 +81,6 @@ router.beforeEach((to, from, next) => {
 		}
   }
   else if (to.matched.some((record) => record.meta.requiresPrivate)) {
-    console.log(to)
-    console.log(from)
 		if (!store.getters.loggedIn) {
 			next({
 				path: "/login",
