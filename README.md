@@ -1,6 +1,6 @@
 # P7-Groupomania 
 
-## *Stack* 
+## *Environment* 
 
 #### *Backend :* 
 Node JS / MySQL / Sequelize
@@ -41,7 +41,7 @@ Requires MySQl Workbench (or any mysql manager) and nodeJS installed on your com
 Edit config.json file inside backend/config
 Change the development fields as your database setup(username, password,etc..)
 
-then on your terminal :
+Then on your terminal :
 
 ```
 cd backend
@@ -54,7 +54,7 @@ Tables and rows will be created automatically in your database after run the ser
 
 Requires VueJS installed globally on your computer.
 
-then on your terminal :
+Then on your terminal :
 
 ```
 cd frontend
